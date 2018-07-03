@@ -23,11 +23,7 @@ The game randomly shuffles the cards. The player flips one card over to check th
 ## Dependencies
 
 * https://matthewcranford.com/memory-game-walkthrough-part-1-setup/
-<br>
 * https://www.diigo.com/outliner/fii42b/Udacity-Memory-Game-Project?key=dwj0y5x9cw
-<br>
 * https://www.w3schools.com/howto/howto_css_modals.asp
-<br>
 * https://fonts.googleapis.com/css?family=Coda
-<br>
 * https://wallup.net/wp-content/uploads/2016/01/168643-minimalism-green-geometry-abstract-low_poly-digital_art-artwork-748x561.png
