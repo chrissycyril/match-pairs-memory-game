@@ -89,7 +89,7 @@ function cardMatch(){
         matchCounter+=2;
         console.log(matchCounter);
         // If matchcounter=16, call stopCount, starRating and toggleModal functions
-        if(matchCounter>0){
+        if(matchCounter===16){
             stopCount();
             starRating(moves);
             toggleModal();
