@@ -49,7 +49,6 @@ let timer;
 let timeOn= false;
 
 allCards.addEventListener('click',function(e){
-    console.log(e.target);
     clickCount++;
     if(clickCount===1){
         startCount();
@@ -58,7 +57,6 @@ allCards.addEventListener('click',function(e){
         toggleCard(e.target);
         openCards.push(e.target);
         if(openCards.length===2){
-            console.log('2 cards!');
             cardMatch();
             moveCount();
         }
@@ -70,7 +68,6 @@ allCards.addEventListener('click',function(e){
 
 function shuffleDeck(){
  const cardsToShuffle=Array.from(document.querySelectorAll('.deck li'));
- console.log('Cards to shuffle', cardsToShuffle);
  const shuffledCards=shuffle(cardsToShuffle);
     for(card of shuffledCards){
     allCards.appendChild(card);
@@ -85,39 +82,42 @@ function cardMatch(){
         openCards[0].classList.toggle('match');
         openCards[1].classList.toggle('match');
         openCards=[];
-        console.log('Match!');
         matchCounter+=2;
-        console.log(matchCounter);
         // If matchcounter=16, call stopCount, starRating and toggleModal functions
         if(matchCounter===16){
             stopCount();
-            starRating(moves);
             toggleModal();
            
         }
     } else{
-      setTimeout(function() {
-            console.log('Not a match!');
-            toggleCard(openCards[0]);
-            toggleCard(openCards[1]);
-            openCards=[];
-      },1000);
-      
-    }
-}
+            // Starting shake animation
+            openCards[0].classList.toggle("apply-shake");
+            openCards[1].classList.toggle("apply-shake");
 
+            setTimeout(function() {
+                // Closing cards and disabling animation that have'nt matched
+                toggleCard(openCards[0]);
+                toggleCard(openCards[1]);
+                openCards[0].classList.toggle("apply-shake");
+                openCards[1].classList.toggle("apply-shake");
+                openCards=[];
+            },1000);
+           
+        }  
+}
 
 
 function toggleCard(card) {
     card.classList.toggle('open');
     card.classList.toggle('show');
-}
+    }
 
 // Each moves are counted here
 function moveCount(){
     moves++;
     const allMoves=document.querySelector('.moves');
     allMoves.innerHTML=moves+ ' Moves';
+    starRating(moves);
     if(moves===1){
         startCount();
     }
@@ -146,7 +146,6 @@ function startCount(){
         timer= setInterval(insertTime,1000);
         timeOn =true;
     }
-    
 }    
 
 
@@ -159,7 +158,6 @@ function stopCount(){
 
 function insertTime(){
     sec++;
-
     if(sec<10){
         sec= `0${sec}`;
     }
@@ -167,7 +165,6 @@ function insertTime(){
         min++;
         sec = "00";
     }
-
     // Displays time
     document.querySelector('.timer').innerHTML = "0" + min + ":" + sec;
 }

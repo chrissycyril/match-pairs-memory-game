@@ -74,10 +74,32 @@ h4 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
+.deck .card.apply-shake{
+  animation: shake .82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 .deck .card.open {
     transform: rotateY(0);
     background:  #E40242;
     cursor: default;
+    pointer-events: none;
 }
 
 .deck .card.show {
@@ -187,12 +209,6 @@ h4 {
 
 .close-button {
     float: right;
-    /*width: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;*/
     color: #232222;
     font-size: 28px;
     font-weight: bold;
@@ -203,3 +219,12 @@ h4 {
     background-color: darkgray;
 }
 
+@media screen and (max-width: 560px) {
+   .container{
+    position: absolute;
+    margin: 0px auto;
+    padding: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    }
+}

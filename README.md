@@ -23,3 +23,5 @@ The game randomly shuffles the cards. The player flips one card over to check th
 * https://www.w3schools.com/howto/howto_css_modals.asp
 * https://fonts.googleapis.com/css?family=Coda
 * https://wallup.net/wp-content/uploads/2016/01/168643-minimalism-green-geometry-abstract-low_poly-digital_art-artwork-748x561.png
+* https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+* https://teamtreehouse.com/community/shake-effect-with-javascript-only
